@@ -1,10 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Board from "./components/Board";
+import { observe } from "./components/Game";
+import "./index.css";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-)
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+observe((knightPosition) =>
+  root.render(
+    <React.StrictMode>
+      <Board knightPosition={knightPosition} />
+    </React.StrictMode>
+  )
+);
